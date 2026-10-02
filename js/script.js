@@ -1,8 +1,11 @@
 document.addEventListener('DOMContentLoaded', () => {
     let rutinaData = [];
     
-    // Hace la petición a la nueva ruta
-    fetch('data/rutina.json')
+    // Generamos un timestamp dinámico para evitar la caché del navegador
+    const cacheBuster = new Date().getTime();
+    
+    // Agregamos el timestamp a la URL de la petición
+    fetch(`data/rutina.json?v=${cacheBuster}`)
         .then(response => response.json())
         .then(data => {
             rutinaData = data.dias;
