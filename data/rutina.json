@@ -3,214 +3,259 @@
     {
       "id": "dia1",
       "titulo": "Día 1: Torso 1",
+      "calentamiento": [
+        "Rotaciones de hombro con bastón o banda: 10 reps.",
+        "Cat-Cow (Gato-Vaca) con foco respiratorio: 8 reps lentas.",
+        "Aproximación: 2 series livianas en Press de Banca."
+      ],
       "ejercicios": [
         {
           "nombre": "Press de Banca Plano",
           "series": "4x5-6",
-          "rpe": "8.5",
+          "rir": "1-2 reps",
           "descanso": "3 min",
-          "nota": "Retraé escápulas. No despegues glúteos del banco. Mantené los codos a 45°-60°.",
-          "link": "https://www.tiktok.com/search?q=press+banca+plano+gimnasio"
+          "nota": "Leg drive activo. No despegues glúteos del banco ni infles el abdomen hacia el techo.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+press+banca+plano+gimnasio"
         },
         {
-          "nombre": "Seal Row (Remo Banco Inclinado)",
+          "nombre": "Remo en Banco Inclinado (Seal Row)",
           "series": "4x8-10",
-          "rpe": "8-9",
+          "rir": "1-2 reps",
           "descanso": "2.5 min",
-          "nota": "Apoyá el pecho en el banco a 30°-45°. Evitá usar impulso para subir.",
-          "link": "https://www.tiktok.com/search?q=remo+mancuernas+banco+inclinado+gimnasio"
+          "nota": "Apretá la espalda 1 seg arriba. No uses impulso lumbar.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+remo+mancuernas+banco+inclinado"
         },
         {
-          "nombre": "Press Militar con Mancuernas",
+          "nombre": "Press Inclinado Mancuernas (30°)",
           "series": "3x8-10",
-          "rpe": "8",
-          "descanso": "90 seg",
-          "nota": "Sentado a 80°-90°. No mezas el torso ni abras las costillas exageradamente.",
-          "link": "https://www.tiktok.com/search?q=press+militar+mancuernas+sentado+gimnasio"
+          "rir": "1-2 reps",
+          "descanso": "90-120 seg",
+          "nota": "Mantené los codos a 45°. Bajá abriendo el pecho para máximo estiramiento.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+press+inclinado+mancuernas"
         },
         {
-          "nombre": "Vuelos Laterales",
-          "series": "4x12-15",
-          "rpe": "9",
-          "descanso": "60-90 seg",
-          "nota": "Leve inclinación hacia adelante. Liderá el movimiento con los codos.",
-          "link": "https://www.tiktok.com/search?q=vuelos+laterales+mancuernas+gimnasio"
-        },
-        {
-          "nombre": "Tríceps Polea Alta (Cuerda)",
+          "nombre": "Jalón al Pecho Polea (Neutro/Supino)",
           "series": "3x10-12",
-          "rpe": "9",
+          "rir": "1 rep",
+          "descanso": "90 seg",
+          "nota": "Torso 10° atrás. Traccioná liderando con los codos. Exhalá al bajar el peso.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+jalon+al+pecho+polea"
+        },
+        {
+          "nombre": "Vuelos Laterales con Mancuernas",
+          "series": "4x12-15",
+          "rir": "1 rep",
+          "descanso": "60-90 seg",
+          "nota": "Leve inclinación al frente. No encojas los trapecios hacia las orejas.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+vuelos+laterales+mancuernas"
+        }
+      ],
+      "diastasis": [
+        {
+          "nombre": "Respiración Diafragmática",
+          "series": "3x8-10",
+          "rir": "Control",
           "descanso": "60 seg",
-          "nota": "Codos fijos a los lados del torso, sin balanceos hacia adelante.",
-          "link": "https://www.tiktok.com/search?q=triceps+polea+alta+cuerda+gimnasio"
+          "nota": "Activar transverso al exhalar. Sostener 5 seg sin abultar panza.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+respiracion+diafragmatica+transverso"
         }
       ]
     },
     {
       "id": "dia2",
       "titulo": "Día 2: Pierna",
+      "calentamiento": [
+        "Movilidad de tobillo contra pared: 10 reps por lado.",
+        "Apertura de cadera (90/90 en el suelo): 8 transiciones.",
+        "Aproximación: 2 series de sentadilla con barra sola y peso intermedio."
+      ],
       "ejercicios": [
         {
-          "nombre": "Sentadilla Libre",
+          "nombre": "Sentadilla Libre con Barra",
           "series": "4x5-6",
-          "rpe": "8",
+          "rir": "2 reps",
           "descanso": "3 min",
-          "nota": "Bracing abdominal. Pies ancho de hombros. Evitá el colapso de rodillas (valgo).",
-          "link": "https://www.tiktok.com/search?q=sentadilla+libre+barra+gimnasio"
+          "nota": "Bracing abdominal. Bajá rompiendo el paralelo. Evitá el colapso de rodillas.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+sentadilla+libre+barra"
         },
         {
           "nombre": "Prensa 45° o Hack Squat",
           "series": "3x8-10",
-          "rpe": "8.5",
+          "rir": "1-2 reps",
           "descanso": "2 min",
-          "nota": "Apoyá bien la espalda baja. No bloquees las rodillas bruscamente arriba.",
-          "link": "https://www.tiktok.com/search?q=prensa+45+piernas+gimnasio"
+          "nota": "No despegues la cola abajo, ni bloquees bruscamente las rodillas arriba.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+prensa+45+gimnasio"
         },
         {
           "nombre": "Camilla de Isquiotibiales",
           "series": "4x10-12",
-          "rpe": "9",
+          "rir": "1 rep",
           "descanso": "90 seg",
-          "nota": "Mantén la cadera pegada al banco en todo momento.",
-          "link": "https://www.tiktok.com/search?q=camilla+isquiotibiales+leg+curl+gimnasio"
+          "nota": "Apretá el glúteo levemente para no levantar la cadera al flexionar.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+camilla+isquiotibiales"
         },
         {
           "nombre": "Sillón de Cuádriceps",
           "series": "3x12-15",
-          "rpe": "9.5",
+          "rir": "0-1 reps",
           "descanso": "60 seg",
-          "nota": "Pausa de 1 segundo arriba. Movimiento controlado, sin patear.",
-          "link": "https://www.tiktok.com/search?q=sillon+cuadriceps+leg+extension+gimnasio"
+          "nota": "Pausa de 1 seg arriba, bajada lenta en 3 seg. No patees por inercia.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+sillon+cuadriceps"
         },
         {
           "nombre": "Gemelos de Pie",
           "series": "4x12-15",
-          "rpe": "9.5",
+          "rir": "0-1 reps",
           "descanso": "60 seg",
-          "nota": "Sostener contracción 1 seg arriba. Bajada con estiramiento profundo, sin rebotar.",
-          "link": "https://www.tiktok.com/search?q=gemelos+de+pie+gimnasio"
+          "nota": "Elevación máxima, pausa 1 seg, bajada profunda. Sin rebotar abajo.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+gemelos+de+pie"
+        }
+      ],
+      "diastasis": [
+        {
+          "nombre": "Pallof Press (Banda/Polea)",
+          "series": "3x10-12",
+          "rir": "Control",
+          "descanso": "60 seg",
+          "nota": "Paso lateral de pie. Extendé al frente evitando rotar el torso. Sostené 2 seg.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+pallof+press+diastasis"
         }
       ]
     },
     {
       "id": "dia3",
       "titulo": "Día 3: Torso 2",
+      "calentamiento": [
+        "Círculos de brazos: 10 hacia adelante, 10 hacia atrás.",
+        "YTWL (letras con brazos sin peso): 8 reps de cada letra para escápulas.",
+        "Face Pulls muy livianos: 15 reps."
+      ],
       "ejercicios": [
         {
-          "nombre": "Jalón al Pecho en Polea",
+          "nombre": "Jalón al Pecho (Prono/Abierto)",
           "series": "4x8-10",
-          "rpe": "8.5",
+          "rir": "1-2 reps",
           "descanso": "2 min",
-          "nota": "Torso inclinado 10°-15° hacia atrás. Llevá el agarre a la parte alta del pecho.",
-          "link": "https://www.tiktok.com/search?q=jalon+al+pecho+polea+gimnasio"
+          "nota": "Juntá las escápulas abajo. No tires la barra detrás de la nuca.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+jalon+al+pecho+abierto"
         },
         {
-          "nombre": "Press Inclinado con Mancuernas",
-          "series": "3x8-10",
-          "rpe": "8",
-          "descanso": "90-120 seg",
-          "nota": "Banco a 30°. Empujá desde los costados del pecho.",
-          "link": "https://www.tiktok.com/search?q=press+inclinado+mancuernas+gimnasio"
-        },
-        {
-          "nombre": "Remo Unilateral Polea/Mancuerna",
-          "series": "3x10-12",
-          "rpe": "8.5",
-          "descanso": "90 seg (entre lados)",
-          "nota": "Evitá girar el torso entero al jalar.",
-          "link": "https://www.tiktok.com/search?q=remo+unilateral+mancuerna+gimnasio"
-        },
-        {
-          "nombre": "Vuelos Laterales en Polea",
-          "series": "4x12-15 (Drop-set)",
-          "rpe": "9",
-          "descanso": "60 seg",
-          "nota": "Tensión constante. En la última serie, bajá el peso un 30% y andá al fallo.",
-          "link": "https://www.tiktok.com/search?q=vuelos+laterales+polea+gimnasio"
-        },
-        {
-          "nombre": "Curl Bayesiano en Polea (Superserie A)",
-          "series": "3x10-12",
-          "rpe": "9",
-          "descanso": "0 seg (Paso a B)",
-          "nota": "Unilateral. Codo fijo ligeramente atrás de la línea del torso.",
-          "link": "https://www.tiktok.com/search?q=curl+bayesiano+polea+gimnasio"
-        },
-        {
-          "nombre": "Extensión Tríceps Cabeza (Superserie B)",
-          "series": "3x10-12",
-          "rpe": "9",
+          "nombre": "Press Militar Mancuernas",
+          "series": "4x8-10",
+          "rir": "1-2 reps",
           "descanso": "90 seg",
-          "nota": "Codos al frente, extensión completa del rango arriba.",
-          "link": "https://www.tiktok.com/search?q=extension+triceps+sobre+cabeza+polea+gimnasio"
+          "nota": "Banco a 80-90°. Bajá controlado hasta rozar los hombros.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+press+militar+mancuernas+sentado"
+        },
+        {
+          "nombre": "Remo Unilateral Polea Baja",
+          "series": "3x10-12",
+          "rir": "1-2 reps",
+          "descanso": "90 seg",
+          "nota": "Permití que la polea estire el dorsal adelante. No gires todo el torso.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+remo+unilateral+polea+baja"
+        },
+        {
+          "nombre": "Aperturas en Polea (Cruce)",
+          "series": "3x12-15",
+          "rir": "1 rep",
+          "descanso": "60-90 seg",
+          "nota": "Codos fijos. Apretá el pecho 1 seg al juntar las manos al frente.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+aperturas+polea+pecho"
+        },
+        {
+          "nombre": "Face Pull Polea Alta",
+          "series": "4x12-15",
+          "rir": "1 rep",
+          "descanso": "60-90 seg",
+          "nota": "Llevá la cuerda hacia tus ojos abriendo las manos hacia atrás.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+face+pull+gimnasio"
+        }
+      ],
+      "diastasis": [
+        {
+          "nombre": "Bird-Dog (Perro de Caza)",
+          "series": "3x8-10",
+          "rir": "Control",
+          "descanso": "60 seg",
+          "nota": "En cuadrupedia. Extendé brazo y pierna opuesta. Pausa 2 seg. No hundas la cintura.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+bird+dog+diastasis"
         }
       ]
     },
     {
       "id": "dia4",
-      "titulo": "Día 4: Adicionales",
+      "titulo": "Día 4: Brazos y Hombros",
+      "calentamiento": [
+        "Dislocaciones de hombro con banda: 10 reps.",
+        "Curl de bíceps y extensión de tríceps muy livianos (polea): 15 reps."
+      ],
       "ejercicios": [
         {
-          "nombre": "Press Arnold / Hombros Sentado",
-          "series": "3x10-12",
-          "rpe": "7.5-8",
+          "nombre": "Press Arnold Sentado",
+          "series": "3x8-10",
+          "rir": "1-2 reps",
           "descanso": "90 seg",
-          "nota": "No arquees de más la espalda baja al empujar.",
-          "link": "https://www.tiktok.com/search?q=press+arnold+mancuernas+gimnasio"
+          "nota": "Palmas mirándote abajo. Al empujar, rotá para que terminen al frente.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+press+arnold+mancuernas"
         },
         {
-          "nombre": "Face Pull en Polea Alta",
+          "nombre": "Vuelos Laterales Polea Baja",
+          "series": "4x12-15",
+          "rir": "1 rep",
+          "descanso": "60 seg",
+          "nota": "De costado a la máquina. Elevá de lado sin doblar el codo de más.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+vuelos+laterales+polea+baja"
+        },
+        {
+          "nombre": "Vuelos Posteriores (Mancuerna)",
           "series": "3x12-15",
-          "rpe": "8",
-          "descanso": "60-90 seg",
-          "nota": "Llevá la cuerda hacia los ojos/frente abriendo las manos y codos hacia atrás.",
-          "link": "https://www.tiktok.com/search?q=face+pull+polea+alta+gimnasio"
+          "rir": "1 rep",
+          "descanso": "60 seg",
+          "nota": "Torso a 90°. Aisla la parte trasera del hombro separando hacia las paredes.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+pajaro+hombro+posterior"
         },
         {
-          "nombre": "Curl Martillo con Mancuernas",
+          "nombre": "1A. Tríceps Polea Cuerda",
           "series": "3x10-12",
-          "rpe": "8.5",
-          "descanso": "60-90 seg",
-          "nota": "Agarre neutro. Codos fijos, sin impulso de cadera.",
-          "link": "https://www.tiktok.com/search?q=curl+martillo+mancuernas+gimnasio"
+          "rir": "0-1 reps",
+          "descanso": "0 seg",
+          "nota": "Polea arriba. Separa la cuerda abajo. Bajas la polea al terminar.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+triceps+cuerda"
         },
         {
-          "nombre": "Extensión de Tríceps en Polea",
-          "series": "3x12",
-          "rpe": "9",
-          "descanso": "60 seg",
-          "nota": "Movimiento controlado de aislamiento puro.",
-          "link": "https://www.tiktok.com/search?q=triceps+polea+alta+gimnasio"
+          "nombre": "1B. Curl Martillo Cuerda",
+          "series": "3x10-12",
+          "rir": "0-1 reps",
+          "descanso": "90 seg",
+          "nota": "Polea abajo. Agarre neutro. No uses envión lumbar.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+curl+martillo+polea+cuerda"
+        },
+        {
+          "nombre": "2A. Extensión Cabeza Tríceps",
+          "series": "3x10-12",
+          "rir": "1 rep",
+          "descanso": "0 seg",
+          "nota": "Polea media/baja. De espaldas a la máquina. Extendé sobre tu cabeza.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+extension+triceps+sobre+cabeza+polea"
+        },
+        {
+          "nombre": "2B. Curl Bayesiano",
+          "series": "3x10-12",
+          "rir": "1 rep",
+          "descanso": "90 seg",
+          "nota": "Polea baja. Unilateral. Brazo retrasado, codo fijo. Bajada lenta en 3 seg.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+curl+bayesiano+polea"
         }
-      ]
-    },
-    {
-      "id": "diastasis",
-      "titulo": "Core & Diástasis",
-      "ejercicios": [
+      ],
+      "diastasis": [
         {
-          "nombre": "Respiración Diafragmática",
-          "series": "3x8-10 reps",
-          "rpe": "6-7",
+          "nombre": "Plancha Frontal (Rodillas)",
+          "series": "3x30-40s",
+          "rir": "Fallo postural",
           "descanso": "60 seg",
-          "nota": "Activar transverso al exhalar. Sostener contracción 5 seg sin abultar el abdomen.",
-          "link": "https://www.tiktok.com/search?q=respiracion+diafragmatica+transverso+diastasis"
-        },
-        {
-          "nombre": "Pallof Press (Banda/Polea)",
-          "series": "3x10-12 (x lado)",
-          "rpe": "6-7",
-          "descanso": "60 seg",
-          "nota": "De pie de costado. Evitar rotación del torso. Sostener 2 seg extendido.",
-          "link": "https://www.tiktok.com/search?q=pallof+press+diastasis+gimnasio"
-        },
-        {
-          "nombre": "Bird-Dog (Perro de Caza)",
-          "series": "3x8-10 (x lado)",
-          "rpe": "6-7",
-          "descanso": "60 seg",
-          "nota": "No hiper-extender la columna arriba. Pausa de 2 seg en extensión.",
-          "link": "https://www.tiktok.com/search?q=bird+dog+diastasis+ejercicio"
+          "nota": "Línea recta de rodillas a hombros. Ombligo hundido, abdomen roca.",
+          "link": "https://www.google.com/search?q=site:tiktok.com+plancha+rodillas+diastasis"
         }
       ]
     }

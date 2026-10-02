@@ -4,10 +4,13 @@
     --surface-color: #ffffff;
     --primary-color: #d8b4e2;
     --primary-hover: #c69bc3;
+    --primary-light: #f3e8f7;
     --text-main: #4a404a;
     --text-muted: #847684;
     --border: #f0e6f0;
     --shadow: rgba(216, 180, 226, 0.15);
+    --success: #a8e6cf;
+    --success-text: #2d6a4f;
 }
 
 @media (prefers-color-scheme: dark) {
@@ -17,10 +20,13 @@
         --surface-color: #262128;
         --primary-color: #b388be;
         --primary-hover: #9c73a8;
+        --primary-light: #352b38;
         --text-main: #f0ebf0;
         --text-muted: #a496a4;
         --border: #3b323e;
         --shadow: rgba(0, 0, 0, 0.3);
+        --success: #3d6a58;
+        --success-text: #d8f3dc;
     }
 }
 
@@ -36,22 +42,48 @@ body {
     color: var(--text-main);
     line-height: 1.6;
     transition: background-color 0.3s, color 0.3s;
+    padding-bottom: 60px;
 }
 
 header {
     background-color: var(--surface-color);
-    padding: 20px 20px 0;
+    padding: 15px 20px 0;
     box-shadow: 0 4px 12px var(--shadow);
     position: sticky;
     top: 0;
     z-index: 10;
 }
 
+.header-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+}
+
 h1 {
     font-weight: 600;
     font-size: 1.5rem;
-    margin-bottom: 15px;
-    text-align: center;
+    color: var(--text-main);
+}
+
+.reset-btn {
+    background: transparent;
+    border: 1px solid var(--border);
+    color: var(--text-muted);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    transition: all 0.2s ease;
+}
+
+.reset-btn:hover {
+    background-color: var(--primary-light);
+    color: var(--primary-color);
 }
 
 #tabs-container {
@@ -59,11 +91,11 @@ h1 {
     gap: 10px;
     overflow-x: auto;
     padding-bottom: 15px;
-    scrollbar-width: none; /* Oculta scrollbar en Firefox */
+    scrollbar-width: none;
 }
 
 #tabs-container::-webkit-scrollbar {
-    display: none; /* Oculta scrollbar en Chrome/Safari */
+    display: none;
 }
 
 .tab-btn {
@@ -98,11 +130,12 @@ h1 {
     padding: 20px;
     margin-bottom: 15px;
     box-shadow: 0 4px 12px var(--shadow);
-    transition: transform 0.2s ease;
+    transition: transform 0.2s ease, border-color 0.2s ease;
 }
 
-.card:hover {
-    transform: translateY(-2px);
+.card.completed-card {
+    border-color: var(--primary-color);
+    opacity: 0.9;
 }
 
 .card-header {
@@ -120,7 +153,7 @@ h1 {
 .card-link {
     color: var(--primary-color);
     text-decoration: none;
-    font-size: 1.2rem;
+    font-size: 1.3rem;
     transition: color 0.2s;
 }
 
@@ -132,7 +165,7 @@ h1 {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 10px;
-    margin-bottom: 12px;
+    margin-bottom: 15px;
 }
 
 .stat-item {
@@ -148,10 +181,113 @@ h1 {
     color: var(--primary-color);
 }
 
+/* --- Tracker Section (Peso y Checkboxes) --- */
+.tracker-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    background-color: var(--bg-color);
+    padding: 12px;
+    border-radius: 12px;
+    margin-bottom: 12px;
+}
+
+.weight-tracker {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.85rem;
+    color: var(--text-muted);
+}
+
+.weight-input {
+    width: 70px;
+    padding: 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    background-color: var(--surface-color);
+    color: var(--text-main);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-align: center;
+    outline: none;
+    transition: border-color 0.2s;
+}
+
+.weight-input:focus {
+    border-color: var(--primary-color);
+}
+
+.sets-tracker {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+}
+
+.set-pill {
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    border: 1px solid var(--border);
+    background-color: var(--surface-color);
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.set-pill.completed {
+    background-color: var(--primary-color);
+    border-color: var(--primary-color);
+    color: #ffffff;
+}
+
 .card-note {
     font-size: 0.85rem;
     background-color: var(--bg-color);
     padding: 10px;
     border-radius: 8px;
     border-left: 3px solid var(--primary-color);
+}
+
+/* --- Mascotita Flotante --- */
+.mascot-container {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+    z-index: 100;
+    cursor: pointer;
+}
+
+.mascot-speech {
+    background-color: var(--surface-color);
+    color: var(--text-main);
+    border: 1px solid var(--border);
+    padding: 6px 12px;
+    border-radius: 12px;
+    font-size: 0.8rem;
+    margin-bottom: 6px;
+    box-shadow: 0 4px 10px var(--shadow);
+    white-space: nowrap;
+    opacity: 0.95;
+    transition: all 0.2s ease;
+}
+
+.mascot-icon {
+    filter: drop-shadow(0 4px 6px var(--shadow));
+    transition: transform 0.2s ease;
+}
+
+.mascot-container:hover .mascot-icon {
+    transform: scale(1.1) rotate(5deg);
 }
