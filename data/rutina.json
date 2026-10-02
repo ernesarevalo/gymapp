@@ -1,0 +1,40 @@
+{
+  "dias": [
+    {
+      "id": "dia1",
+      "titulo": "Día 1: Torso 1",
+      "ejercicios": [
+        {
+          "nombre": "Press de Banca Plano",
+          "series": "4x5-6",
+          "rpe": "8.5",
+          "descanso": "3 min",
+          "nota": "Retraé escápulas. No despegues glúteos del banco.",
+          "link": "https://www.tiktok.com/search?q=press+banca+plano+gimnasio"
+        },
+        {
+          "nombre": "Seal Row",
+          "series": "4x8-10",
+          "rpe": "8-9",
+          "descanso": "2.5 min",
+          "nota": "Apoyá el pecho en el banco a 30°.",
+          "link": "https://www.tiktok.com/search?q=seal+row+gimnasio"
+        }
+      ]
+    },
+    {
+      "id": "dia2",
+      "titulo": "Día 2: Pierna",
+      "ejercicios": [
+        {
+          "nombre": "Sentadilla Libre",
+          "series": "4x5-6",
+          "rpe": "8",
+          "descanso": "3 min",
+          "nota": "Bracing abdominal. Pies ancho de hombros.",
+          "link": "https://www.tiktok.com/search?q=sentadilla+libre+gimnasio"
+        }
+      ]
+    }
+  ]
+}
