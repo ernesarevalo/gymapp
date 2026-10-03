@@ -2,6 +2,38 @@ document.addEventListener('DOMContentLoaded', () => {
     let rutinaData = [];
     let currentDiaId = '';
     const cacheBuster = new Date().getTime();
+
+    // --- LÓGICA DE MODO OSCURO / CLARO ---
+    const themeToggleBtn = document.getElementById('theme-toggle-btn');
+    const themeIcon = themeToggleBtn.querySelector('i');
+    
+    const savedTheme = localStorage.getItem('gymapp_theme');
+    const systemPrefersDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+    
+    let currentTheme = 'light';
+    if (savedTheme === 'dark' || (!savedTheme && systemPrefersDark)) {
+        currentTheme = 'dark';
+    }
+    
+    function applyTheme(theme) {
+        document.documentElement.setAttribute('data-theme', theme);
+        if (theme === 'dark') {
+            themeIcon.classList.remove('ph-moon');
+            themeIcon.classList.add('ph-sun');
+        } else {
+            themeIcon.classList.remove('ph-sun');
+            themeIcon.classList.add('ph-moon');
+        }
+    }
+    
+    applyTheme(currentTheme);
+    
+    themeToggleBtn.onclick = () => {
+        currentTheme = currentTheme === 'light' ? 'dark' : 'light';
+        localStorage.setItem('gymapp_theme', currentTheme);
+        applyTheme(currentTheme);
+    };
+    // -------------------------------------
     
     // Cargar datos estáticos de la rutina
     fetch(`data/rutina.json?v=${cacheBuster}`)
@@ -34,7 +66,7 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para crear el HTML de una tarjeta de ejercicio o diástasis
+    // Lógica para crear el HTML de una tarjeta
     function createExerciseCard(ej, exKey, isOpcional = false) {
         const savedState = getSavedExData(exKey);
         const setCount = parseSetCount(ej.series);
@@ -95,7 +127,7 @@ document.addEventListener('DOMContentLoaded', () => {
         const dia = rutinaData.find(d => d.id === diaId);
         if (!dia) return;
 
-        // 1. Renderizar Calentamiento
+        // 1. Calentamiento
         if (dia.calentamiento && dia.calentamiento.length > 0) {
             const listItems = dia.calentamiento.map(item => `<li style="margin-bottom: 6px;">${item}</li>`).join('');
             container.innerHTML += `
@@ -110,7 +142,7 @@ document.addEventListener('DOMContentLoaded', () => {
             `;
         }
 
-        // 2. Renderizar Ejercicios Principales
+        // 2. Ejercicios
         if (dia.ejercicios) {
             dia.ejercicios.forEach((ej, exIndex) => {
                 const exKey = `gymapp_${diaId}_ex_${exIndex}`;
@@ -118,7 +150,7 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
 
-        // 3. Renderizar Bloque Diástasis
+        // 3. Diástasis
         if (dia.diastasis) {
             dia.diastasis.forEach((ej, exIndex) => {
                 const exKey = `gymapp_${diaId}_dias_${exIndex}`;
@@ -173,7 +205,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 state.sets[setIdx] = !state.sets[setIdx];
 
                 saveExData(key, state);
-                renderContent(currentDiaId); // Re-render para iluminar tarjeta
+                renderContent(currentDiaId); 
             };
         });
     }
@@ -200,19 +232,66 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // Mascotita
+    // --- Mascotita Aleatoria ---
     const mascot = document.getElementById('mascot-container');
     const speech = document.getElementById('mascot-speech');
+    const mascotIcon = document.getElementById('mascot-icon');
+    
+    // Lista de mascotas SVG
+    const mascotasSvg = [
+        // 1. Gatito / Fantasma
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+            <path d="M32 8C20.954 8 12 16.954 12 28v20c0 2.2 2.6 3.5 4.4 2.2L23 45l5.6 3.7c2.1 1.4 4.7 1.4 6.8 0L41 45l6.6 5.2c1.8 1.3 4.4 0 4.4-2.2V28C52 16.954 43.046 8 32 8z" fill="#E8D5F5"/>
+            <circle cx="25" cy="26" r="3" fill="#4A404A"/>
+            <circle cx="39" cy="26" r="3" fill="#4A404A"/>
+            <path d="M28 32c2 2 6 2 8 0" stroke="#4A404A" stroke-width="2" stroke-linecap="round"/>
+            <circle cx="20" cy="30" r="2.5" fill="#F3C4D8" opacity="0.8"/>
+            <circle cx="44" cy="30" r="2.5" fill="#F3C4D8" opacity="0.8"/>
+        </svg>`,
+        // 2. Perrito Pinscher
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+            <path d="M14 16 L22 30 L42 30 L50 16 L44 48 L20 48 Z" fill="#2d2a26"/>
+            <circle cx="24" cy="26" r="3" fill="#c49a6c"/>
+            <circle cx="40" cy="26" r="3" fill="#c49a6c"/>
+            <path d="M22 40 Q32 50 42 40" fill="#c49a6c"/>
+            <circle cx="32" cy="42" r="3" fill="#2d2a26"/>
+            <circle cx="27" cy="34" r="2.5" fill="#fff"/>
+            <circle cx="37" cy="34" r="2.5" fill="#fff"/>
+            <circle cx="27" cy="34" r="1" fill="#000"/>
+            <circle cx="37" cy="34" r="1" fill="#000"/>
+        </svg>`,
+        // 3. Dragoncito Oriental
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+            <rect x="16" y="22" width="32" height="24" rx="12" fill="#a8e6cf"/>
+            <path d="M18 28 Q10 24 6 30" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M46 28 Q54 24 58 30" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round" fill="none"/>
+            <path d="M24 16 L26 22 M40 16 L38 22" stroke="#ffb7b2" stroke-width="4" stroke-linecap="round"/>
+            <circle cx="24" cy="30" r="3.5" fill="#2d6a4f"/>
+            <circle cx="40" cy="30" r="3.5" fill="#2d6a4f"/>
+            <path d="M28 36 Q32 40 36 36" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" fill="none"/>
+        </svg>`,
+        // 4. Bolita de Hollín
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
+            <circle cx="32" cy="34" r="16" fill="#3a3a3a"/>
+            <path d="M32 14L34 18M32 54L34 50M14 34L18 36M50 34L46 36M20 20L24 24M44 48L40 44M20 48L24 44M44 20L40 24" stroke="#3a3a3a" stroke-width="3" stroke-linecap="round"/>
+            <circle cx="27" cy="32" r="5" fill="#fff"/>
+            <circle cx="39" cy="32" r="5" fill="#fff"/>
+            <circle cx="27" cy="32" r="2" fill="#000"/>
+            <circle cx="39" cy="32" r="2" fill="#000"/>
+        </svg>`
+    ];
+
     const frases = [
         "¡A darle con todo hoy! 💪",
         "¡Respiración y bracing abdominal!",
         "¡Controlá la bajada 3 seg! 🏋️‍♂️",
         "¡Esa última repetición cuenta!",
         "¡Mantené el foco!",
-        "¡Anota tus pesos para la próxima!"
+        "¡Anotá tus pesos para la próxima!"
     ];
 
-    if (mascot) {
+    if (mascot && mascotIcon) {
+        mascotIcon.innerHTML = mascotasSvg[Math.floor(Math.random() * mascotasSvg.length)];
         mascot.onclick = () => {
             speech.textContent = frases[Math.floor(Math.random() * frases.length)];
         };
