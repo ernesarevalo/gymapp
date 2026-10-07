@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
     let currentDiaId = '';
     const cacheBuster = new Date().getTime();
 
-    // --- LÓGICA DE MODO OSCURO / CLARO ---
+    // --- MODO OSCURO / CLARO ---
     const themeToggleBtn = document.getElementById('theme-toggle-btn');
     const themeIcon = themeToggleBtn.querySelector('i');
     
@@ -33,9 +33,8 @@ document.addEventListener('DOMContentLoaded', () => {
         localStorage.setItem('gymapp_theme', currentTheme);
         applyTheme(currentTheme);
     };
-    // -------------------------------------
     
-    // Cargar datos estáticos de la rutina
+    // --- CARGAR DATOS ---
     fetch(`data/rutina.json?v=${cacheBuster}`)
         .then(response => response.json())
         .then(data => {
@@ -66,7 +65,6 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
-    // Lógica para crear el HTML de una tarjeta
     function createExerciseCard(ej, exKey, isOpcional = false) {
         const savedState = getSavedExData(exKey);
         const setCount = parseSetCount(ej.series);
@@ -91,7 +89,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <div class="card ${isCompleted ? 'completed-card' : ''}" ${borderStyle}>
                 <div class="card-header">
                     <div class="card-title">${opcionalLabel}${ej.nombre}</div>
-                    <a href="${ej.link}" target="_blank" class="card-link" aria-label="Ver técnica">
+                    <a href="${ej.link}" target="_blank" class="card-link pdf-exclude" aria-label="Ver técnica">
                         <i class="ph ph-video-camera"></i>
                     </a>
                 </div>
@@ -101,7 +99,7 @@ document.addEventListener('DOMContentLoaded', () => {
                     <div class="stat-item"><i class="ph ph-timer"></i> ${ej.descanso}</div>
                 </div>
 
-                <div class="tracker-container">
+                <div class="tracker-container pdf-exclude">
                     <div class="weight-tracker">
                         <i class="ph ph-scales"></i>
                         <input type="number" 
@@ -161,7 +159,7 @@ document.addEventListener('DOMContentLoaded', () => {
         attachEventListeners();
     }
 
-    // --- Manejo de LocalStorage y Eventos ---
+    // --- LOCALSTORAGE Y EVENTOS ---
     function getSavedExData(key) {
         const data = localStorage.getItem(key);
         return data ? JSON.parse(data) : { weight: '', sets: {} };
@@ -232,53 +230,42 @@ document.addEventListener('DOMContentLoaded', () => {
         };
     }
 
-    // --- Mascotita Aleatoria ---
+    // --- DESCARGAR PDF LIMPIO ---
+    const pdfBtn = document.getElementById('pdf-btn');
+    if (pdfBtn) {
+        pdfBtn.onclick = () => {
+            const element = document.getElementById('content-container');
+            const diaActual = rutinaData.find(d => d.id === currentDiaId);
+            const tituloDia = diaActual ? diaActual.titulo.replace(/[^a-zA-Z0-9]/g, '_') : 'rutina';
+
+            // Ocultar elementos interactivos y links a tiktok con una clase temporal
+            document.querySelectorAll('.pdf-exclude').forEach(el => el.style.display = 'none');
+
+            const options = {
+                margin:       10,
+                filename:     `gymapp_${tituloDia}.pdf`,
+                image:        { type: 'jpeg', quality: 0.98 },
+                html2canvas:  { scale: 2, useCORS: true },
+                jsPDF:        { unit: 'mm', format: 'a4', orientation: 'portrait' }
+            };
+
+            html2pdf().from(element).set(options).save().then(() => {
+                // Volver a mostrar los elementos ocultos al terminar
+                document.querySelectorAll('.pdf-exclude').forEach(el => el.style.display = '');
+            });
+        };
+    }
+
+    // --- MASCOTA ALEATORIA ---
     const mascot = document.getElementById('mascot-container');
     const speech = document.getElementById('mascot-speech');
     const mascotIcon = document.getElementById('mascot-icon');
     
-    // Lista de mascotas SVG
     const mascotasSvg = [
-        // 1. Gatito / Fantasma
-        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
-            <path d="M32 8C20.954 8 12 16.954 12 28v20c0 2.2 2.6 3.5 4.4 2.2L23 45l5.6 3.7c2.1 1.4 4.7 1.4 6.8 0L41 45l6.6 5.2c1.8 1.3 4.4 0 4.4-2.2V28C52 16.954 43.046 8 32 8z" fill="#E8D5F5"/>
-            <circle cx="25" cy="26" r="3" fill="#4A404A"/>
-            <circle cx="39" cy="26" r="3" fill="#4A404A"/>
-            <path d="M28 32c2 2 6 2 8 0" stroke="#4A404A" stroke-width="2" stroke-linecap="round"/>
-            <circle cx="20" cy="30" r="2.5" fill="#F3C4D8" opacity="0.8"/>
-            <circle cx="44" cy="30" r="2.5" fill="#F3C4D8" opacity="0.8"/>
-        </svg>`,
-        // 2. Perrito Pinscher
-        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
-            <path d="M14 16 L22 30 L42 30 L50 16 L44 48 L20 48 Z" fill="#2d2a26"/>
-            <circle cx="24" cy="26" r="3" fill="#c49a6c"/>
-            <circle cx="40" cy="26" r="3" fill="#c49a6c"/>
-            <path d="M22 40 Q32 50 42 40" fill="#c49a6c"/>
-            <circle cx="32" cy="42" r="3" fill="#2d2a26"/>
-            <circle cx="27" cy="34" r="2.5" fill="#fff"/>
-            <circle cx="37" cy="34" r="2.5" fill="#fff"/>
-            <circle cx="27" cy="34" r="1" fill="#000"/>
-            <circle cx="37" cy="34" r="1" fill="#000"/>
-        </svg>`,
-        // 3. Dragoncito Oriental
-        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
-            <rect x="16" y="22" width="32" height="24" rx="12" fill="#a8e6cf"/>
-            <path d="M18 28 Q10 24 6 30" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M46 28 Q54 24 58 30" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round" fill="none"/>
-            <path d="M24 16 L26 22 M40 16 L38 22" stroke="#ffb7b2" stroke-width="4" stroke-linecap="round"/>
-            <circle cx="24" cy="30" r="3.5" fill="#2d6a4f"/>
-            <circle cx="40" cy="30" r="3.5" fill="#2d6a4f"/>
-            <path d="M28 36 Q32 40 36 36" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" fill="none"/>
-        </svg>`,
-        // 4. Bolita de Hollín
-        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none">
-            <circle cx="32" cy="34" r="16" fill="#3a3a3a"/>
-            <path d="M32 14L34 18M32 54L34 50M14 34L18 36M50 34L46 36M20 20L24 24M44 48L40 44M20 48L24 44M44 20L40 24" stroke="#3a3a3a" stroke-width="3" stroke-linecap="round"/>
-            <circle cx="27" cy="32" r="5" fill="#fff"/>
-            <circle cx="39" cy="32" r="5" fill="#fff"/>
-            <circle cx="27" cy="32" r="2" fill="#000"/>
-            <circle cx="39" cy="32" r="2" fill="#000"/>
-        </svg>`
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none"><path d="M32 8C20.954 8 12 16.954 12 28v20c0 2.2 2.6 3.5 4.4 2.2L23 45l5.6 3.7c2.1 1.4 4.7 1.4 6.8 0L41 45l6.6 5.2c1.8 1.3 4.4 0 4.4-2.2V28C52 16.954 43.046 8 32 8z" fill="#E8D5F5"/><circle cx="25" cy="26" r="3" fill="#4A404A"/><circle cx="39" cy="26" r="3" fill="#4A404A"/><path d="M28 32c2 2 6 2 8 0" stroke="#4A404A" stroke-width="2" stroke-linecap="round"/><circle cx="20" cy="30" r="2.5" fill="#F3C4D8" opacity="0.8"/><circle cx="44" cy="30" r="2.5" fill="#F3C4D8" opacity="0.8"/></svg>`,
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none"><path d="M14 16 L22 30 L42 30 L50 16 L44 48 L20 48 Z" fill="#2d2a26"/><circle cx="24" cy="26" r="3" fill="#c49a6c"/><circle cx="40" cy="26" r="3" fill="#c49a6c"/><path d="M22 40 Q32 50 42 40" fill="#c49a6c"/><circle cx="32" cy="42" r="3" fill="#2d2a26"/><circle cx="27" cy="34" r="2.5" fill="#fff"/><circle cx="37" cy="34" r="2.5" fill="#fff"/><circle cx="27" cy="34" r="1" fill="#000"/><circle cx="37" cy="34" r="1" fill="#000"/></svg>`,
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none"><rect x="16" y="22" width="32" height="24" rx="12" fill="#a8e6cf"/><path d="M18 28 Q10 24 6 30" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M46 28 Q54 24 58 30" stroke="#a8e6cf" stroke-width="3" stroke-linecap="round" fill="none"/><path d="M24 16 L26 22 M40 16 L38 22" stroke="#ffb7b2" stroke-width="4" stroke-linecap="round"/><circle cx="24" cy="30" r="3.5" fill="#2d6a4f"/><circle cx="40" cy="30" r="3.5" fill="#2d6a4f"/><path d="M28 36 Q32 40 36 36" stroke="#2d6a4f" stroke-width="2" stroke-linecap="round" fill="none"/></svg>`,
+        `<svg viewBox="0 0 64 64" width="48" height="48" fill="none"><circle cx="32" cy="34" r="16" fill="#3a3a3a"/><path d="M32 14L34 18M32 54L34 50M14 34L18 36M50 34L46 36M20 20L24 24M44 48L40 44M20 48L24 44M44 20L40 24" stroke="#3a3a3a" stroke-width="3" stroke-linecap="round"/><circle cx="27" cy="32" r="5" fill="#fff"/><circle cx="39" cy="32" r="5" fill="#fff"/><circle cx="27" cy="32" r="2" fill="#000"/><circle cx="39" cy="32" r="2" fill="#000"/></svg>`
     ];
 
     const frases = [
